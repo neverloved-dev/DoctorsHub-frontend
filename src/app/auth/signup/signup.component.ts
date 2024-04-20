@@ -13,12 +13,9 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checkData(){
-
-  }
-
   signUp(){
-    this.service.registerUser()
+    let userSignUpDTO = new UserSignUpDTO()
+    this.service.signup()
   }
 
 }

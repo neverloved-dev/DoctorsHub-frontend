@@ -1,20 +1,16 @@
 import { Injectable } from "@angular/core";
+import { UserLoginDTO } from "../auth/DTOs/user-login.dto";
+import { UserRegisterDTO } from "../auth/DTOs/user-register.dto";
 
 @Injectable({providedIn:'root'})
 export class AuthService{
     protected baseUrl = "";
-    saveToken(){
+    
+    logIn(userLoginDTO:UserLoginDTO){
 
     }
 
-    getToken(){
-
-    }
-
-    logInUser(){
-
-    }
-    registerUser(){
-
+    signup(userRegisterDTO:UserRegisterDTO){
+        
     }
 }
