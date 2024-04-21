@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserLoginDTO } from '../DTOs/user-login.dto';
+import { UserLoginDTO } from '../shared_DTOs/user-login.dto';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
