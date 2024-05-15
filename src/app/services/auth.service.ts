@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 
 @Injectable({providedIn:'root'})
 export class AuthService{
-    protected baseUrl = "";
+    protected baseUrl = "localhost://5632";
     constructor(private http: HttpClient){
         
     }
@@ -15,5 +15,9 @@ export class AuthService{
 
     signup(userRegisterDTO:UserRegisterDTO){
         return this.http.post(this.baseUrl+"/register",userRegisterDTO);
+    }
+
+    getJwtToken(){
+      var key = 
     }
 }
