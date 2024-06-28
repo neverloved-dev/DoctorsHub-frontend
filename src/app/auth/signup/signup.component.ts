@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service'
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserRegisterDTO } from '../shared_DTOs/user-register.dto';
@@ -9,12 +9,11 @@ import { UserRegisterDTO } from '../shared_DTOs/user-register.dto';
   styleUrls: ['./signup.component.less']
 })
 export class SignupComponent implements OnInit {
-  _authService:AuthService;
 
-
-  constructor(private service :AuthService) { 
-    this._authService = service;
+  constructor() {
   }
+
+  _authService = inject(AuthService);
 
   formGroupSignUp = new FormGroup({
     firstName : new FormControl(""),
@@ -44,7 +43,7 @@ export class SignupComponent implements OnInit {
       registerUserDTO.name = userFirstName;
       registerUserDTO.surname = lastName;
       registerUserDTO.phoneNumber = phoneNumber
-      this.service.signup(registerUserDTO)
+      this._authService.signup(registerUserDTO)
     }
     return alert("Passwords did not match");
   }

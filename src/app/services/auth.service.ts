@@ -12,8 +12,14 @@ export class AuthService{
         
     }
     logIn(userLoginDTO:UserLoginDTO){
-        var key = this.http.post(this.baseUrl+"/login",userLoginDTO);
-        this.localStorageService.set("Bearer",key)
+         this.http.post<{ token: string }>(`${this.baseUrl}/login`, userLoginDTO)
+            .subscribe(response => {
+                const key = response.token;
+                this.localStorageService.set("Bearer", key);
+            }, error => {
+                console.error('Login failed', error);
+            });var key = this.http.post(this.baseUrl+"/login",userLoginDTO);
+       
     }
 
     signup(userRegisterDTO:UserRegisterDTO){

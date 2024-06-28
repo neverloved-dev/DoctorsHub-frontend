@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserLoginDTO } from '../shared_DTOs/user-login.dto';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,11 +9,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
-  _authService:AuthService;
-  constructor(authService:AuthService) { 
-    this._authService = authService;
+
+  constructor() { 
+    
   }
 
+  _authService = inject(AuthService);
   ngOnInit(): void {
   }
 

@@ -1,13 +1,15 @@
-import { Injectable, Inject, Optional } from ‘@angular/core’;
-import { HttpInterceptor, HttpHandler, HttpRequest } from ‘@angular/common/http’;
+import { Injectable, Inject, Optional } from '@angular/core';
+import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { AuthService } from './auth.service';
-@Injectable()
+import { inject } from '@angular/core';
+
+@Injectable({providedIn:'root'})
 export class UniversalAppInterceptor implements HttpInterceptor {
 
-  constructor( private authService: AuthService) { }
-
-  intercept(req: HttpRequest, next: HttpHandler) {
-    const token = this.authService.getJWTToken();
+  constructor( ) { }
+  authService = inject(AuthService);
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const token = this.authService.getJwtToken();
     req = req.clone({
       url:  req.url,
       setHeaders: {

@@ -1,6 +1,8 @@
 <nav>
     <ul>
-        <li><a href="/login">Log In</a></li>
-        <li><a href="/signup">Sign up </a></li>
+        <li><a [routerLink]="['/login']"  routerLinkActive="active" ariaCurrentWhenActive="page" >Log In</a></li>
+        <li><a [routerLink]="['/register']"  routerLinkActive="active" ariaCurrentWhenActive="page" >Sign up</a></li>
+        <li><a [routerLink]="['/']"  routerLinkActive="active" ariaCurrentWhenActive="page">Go home</a></li>
     </ul>
 </nav>
+<router-outlet></router-outlet><nav>
