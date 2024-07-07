@@ -8,6 +8,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {  UniversalAppInterceptor  } from './services/auth-interceptor.service'; // Ensure the correct path
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {  UniversalAppInterceptor  } from './services/auth-interceptor.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NavbarComponent
+    NavbarComponent,
+    HttpClientModule
   ],
   providers: [
     {
